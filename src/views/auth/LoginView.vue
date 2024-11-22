@@ -11,35 +11,36 @@ function onClick() {
 
 <template>
   <BackgroundLayout>
-    <v-responsive class="border rounded">
+    <v-responsive>
       <v-app :theme="theme" class="transparent-app">
-        <v-app-bar class="px-3">
+        <!-- <v-app-bar class="px-3" color="transparent">
           <v-spacer></v-spacer>
 
           <v-btn
             :prepend-icon="theme === 'light' ? 'mdi-weather-sunny' : 'mdi-weather-night'"
-            text="Toggle Theme"
             slim
             @click="onClick"
           ></v-btn>
-        </v-app-bar>
+         </v-app-bar> -->
 
         <v-main>
           <v-container class="transparent-container">
             <v-row class="">
-              <v-col cols="12" md="6"
-                >Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique eligendi,
-                quibusdam ab maiores perspiciatis quasi eveniet fuga facilis repellat? Quibusdam
-                necessitatibus blanditiis labore nisi, mollitia cupiditate in porro ea eveniet?
+              <v-col cols="12" md="6">
+                <h1 class="text-center text-h1">taskHub</h1>
+                <h4 class="text-white justify-content-center py-16 text-h6">
+                  A Task Manager app helps users create tasks, assign priorities, and monitor
+                  progress to stay organized and meet deadlines efficiently.
+                </h4>
               </v-col>
-              <v-divider vertical></v-divider>
-              <v-col cols="12" md="6" class="d-flex justify-center align-center">
+
+              <v-col cols="12" md="6" class="d-flex justify-center align-center py-15">
                 <v-card class="glassmorphic-card" elevation="16" max-width="800">
                   <template v-slot:title>
-                    <span class="text-center d-block font-weight-white">LOGIN</span>
+                    <span class="text-center d-block font-weight-white"><h2>LOGIN</h2></span>
                   </template>
 
-                  <v-card-text class="pt-4">
+                  <v-card-text class="pt-3">
                     <v-form fast-fail @submit.prevent>
                       <v-text-field label="Email" variant="outlined">
                         <template v-slot:label>
@@ -53,13 +54,15 @@ function onClick() {
                         </template>
                       </v-text-field>
 
-                      <v-btn class="mt-2 rounded bg-primary" type="submit" block>Login</v-btn>
+                      <v-btn class="mt-2 rounded" color="secondary" type="submit" block
+                        >Login</v-btn
+                      >
                     </v-form>
                     <v-divider class="my-5"></v-divider>
-                    <h5 class="text-center">
+                    <h4 class="text-center">
                       Don't have account?
                       <RouterLink class="text-white" to="/signUp"><b>Sign up</b></RouterLink>
-                    </h5>
+                    </h4>
                   </v-card-text>
                 </v-card></v-col
               >
@@ -67,11 +70,12 @@ function onClick() {
           </v-container>
         </v-main>
 
-        <v-footer border app>2024-Copyright TaskHub</v-footer>
+        <!-- <v-footer color="transparent">2024-Copyright TaskHub</v-footer> -->
       </v-app>
     </v-responsive>
   </BackgroundLayout>
 </template>
+
 <style scoped>
 .transparent-app {
   background: transparent;
@@ -87,8 +91,28 @@ function onClick() {
   padding: 20px; /* Optional padding for inner spacing */
   width: 70%;
 }
-.v-divider {
-  background-color: rgba(246, 240, 240, 0.15);
-  width: 2px;
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #000; /* Dark background for glowing effect */
+  margin: 0;
+}
+
+/* Glowing text effect */
+.glowing-text {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #fff; /* Base text color */
+  text-shadow:
+    0 0 5px #fff,
+    0 0 10px #fff,
+    0 0 20px #ff0080,
+    /* Pinkish glow */ 0 0 30px #ff0080,
+    0 0 40px #ff0080,
+    0 0 50px #ff0080,
+    0 0 60px #ff0080;
 }
 </style>
